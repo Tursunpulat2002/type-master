@@ -28,11 +28,15 @@ function renderWords() {
 function renderCorrectWord(wordID) {
     let correctWordElement = document.getElementById(wordID);
     correctWordElement.setAttribute("class", "text-success");
+    game.correctWords += 1;
+    game.currentWord += 1;
 }
 
 function renderErrorWord(wordID) {
     let errorWordElement = document.getElementById(wordID);
     errorWordElement.setAttribute("class", "text-danger");
+    game.errorWords += 1;
+    game.currentWord += 1;
 }
 
 function renderCurrentWord(wordID) {
@@ -40,26 +44,33 @@ function renderCurrentWord(wordID) {
     currentWordElement.setAttribute("class", "bg-primary");
 }
 
-function main() {
+function init() {
     setWords();
     renderWords();
-    renderCurrentWord(0);
-    document.getElementById("main_input").oninput = function (event) {
-        if (!game.gameStart) {
-            Timer();
-            game.gameStart = true;
-        }
-        let currentVal = event.data;
-        let totalVal = event.target.value;
-        if (currentVal === " ") {
-            console.log(totalVal);
-            event.target.value = "";
-        }
-    };
+    renderCurrentWord(game.currentWord);
 }
 
+document.getElementById("main_input").oninput = function (event) {
+    if (!game.gameStart) {
+        Timer();
+        game.gameStart = true;
+    }
+    let lastInputChar = event.data;
+    let currentInputVal = event.target.value.replace(" ", "");
+
+    if (lastInputChar === " ") {
+        event.target.value = "";
+        if (currentInputVal == game.words[game.currentWord]) {
+            renderCorrectWord(game.currentWord);
+        } else {
+            renderErrorWord(game.currentWord);
+        }
+        renderCurrentWord(game.currentWord);
+    }
+};
+
 window.onload = function () {
-    main();
+    init();
 };
 
 // window.addEventListener("load", Text());
