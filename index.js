@@ -74,7 +74,7 @@ function renderErrorWord(wordID) {
 function renderCurrentWord(wordID) {
     let currentWordElement = document.getElementById(wordID);
     currentWordElement.setAttribute("class", "bg-primary-subtle fs-4 rounded-pill px-2");
-    currentWordElement.scrollIntoView({ behavior: "smooth", block: "center" });
+    currentWordElement.scrollIntoView({ behavior: "instant", block: "center" });
 }
 
 // reset the values of the game, timer, and input field
@@ -86,10 +86,12 @@ function restart() {
     inputElement.focus();
 }
 
+// makes sure to disable scroll wheel inside word bank
 function mouseHandler(e) {
     e.preventDefault();
     e.stopPropagation();
 }
+
 // initialize the game
 function init() {
     setWords();
