@@ -1,3 +1,37 @@
-#random-words span{
-    margin-right: 30px;
+#random-words::-webkit-scrollbar{
+    display: none; 
+}
+
+#random-words{
+    overflow-y: scroll;
+    max-height: 130px;
+    max-width: 750px;
+}
+
+#main_input{
+    min-width: 400px;
+}
+
+#card_body{
+    width: min(750px, 98vw);
+}
+
+#time-card{
+    width: 100px;
+}
+
+#speed-card{
+    width: 150px;
+}
+
+#accuracy-card{
+    width: 400px;
+}
+
+#success-box{
+    margin-top: 5px;
+}
+
+#success-words{
+    margin-bottom: 5px;
 }

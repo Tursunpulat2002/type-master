@@ -31,7 +31,7 @@ function renderWords() {
     for (let i = 0; i < game.words.length; i++) {
         const spanElement = document.createElement("span");
         spanElement.setAttribute("id", i);
-        spanElement.setAttribute("class", "fs-4");
+        spanElement.setAttribute("class", "fs-4 px-2");
         spanElement.innerHTML = game.words[i];
         document.getElementById("random-words").appendChild(spanElement);
     }
@@ -46,21 +46,22 @@ function derenderWords() {
 
 function renderCorrectWord(wordID) {
     let correctWordElement = document.getElementById(wordID);
-    correctWordElement.setAttribute("class", "text-success fs-4");
+    correctWordElement.setAttribute("class", "text-success fs-4 px-2");
     game.correctWords += 1;
     game.currentWord += 1;
 }
 
 function renderErrorWord(wordID) {
     let errorWordElement = document.getElementById(wordID);
-    errorWordElement.setAttribute("class", "text-danger fs-4");
+    errorWordElement.setAttribute("class", "text-danger fs-4 px-2");
     game.errorWords += 1;
     game.currentWord += 1;
 }
 
 function renderCurrentWord(wordID) {
     let currentWordElement = document.getElementById(wordID);
-    currentWordElement.setAttribute("class", "bg-primary fs-4");
+    currentWordElement.setAttribute("class", "bg-primary-subtle fs-4 rounded-pill px-2");
+    currentWordElement.scrollIntoView({ behavior: "smooth", block: "center" });
 }
 
 function restart() {
@@ -77,10 +78,16 @@ function restart() {
     inputElement.focus();
 }
 
+function mouseHandler(e) {
+    e.preventDefault();
+    e.stopPropagation();
+}
+
 function init() {
     setWords();
     renderWords();
     renderCurrentWord(game.currentWord);
+    document.getElementById("random-words").addEventListener("mousewheel", mouseHandler, false);
 }
 
 document.getElementById("main_input").oninput = function (event) {
