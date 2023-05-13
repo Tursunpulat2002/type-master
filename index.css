@@ -1,3 +1,4 @@
-#random-words span{
-    margin-right: 5px;
+/* give words in the word bank a margin on the right to seperate them. */
+#random-words span{ 
+    margin-right: 30px;
 }
