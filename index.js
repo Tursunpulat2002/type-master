@@ -15,6 +15,7 @@ function Timer() {
             if (counter == 0) {
                 // stop decrementing if the timer hits 0
                 document.getElementById("timer").innerHTML = "0";
+                document.getElementById("main_input").disabled = true;
                 return;
             } else {
                 // decrement the timer
@@ -115,6 +116,10 @@ document.getElementById("main_input").oninput = function (event) {
     let currentInputVal = event.target.value.replace(" ", ""); // delete the space after typed word is submitted
 
     if (lastInputChar === " ") {
+        // If the last word in the word bank is entered disable the input field
+        if (game.currentWord === game.words.length - 1) {
+            document.getElementById("main_input").disabled = true;
+        }
         // if the typed word is submitted
         event.target.value = ""; // clear the input field
         if (currentInputVal == game.words[game.currentWord]) {
