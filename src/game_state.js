@@ -1,4 +1,6 @@
 class Game {
+    // singleton of the game
+    // game stats
     gameStart = false;
     correctWords = 0;
     errorWords = 0;
@@ -7,6 +9,7 @@ class Game {
     currentWord = 0;
 
     restart() {
+        // function to reset game stats to default
         this.gameStart = false;
         this.correctWords = 0;
         this.errorWords = 0;
@@ -15,6 +18,6 @@ class Game {
         this.currentWord = 0;
     }
 }
-let game = new Game();
+let game = new Game(); // creating instance of game
 
-export default game;
+export default game; // exporting instance of game
