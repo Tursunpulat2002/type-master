@@ -40,7 +40,7 @@ function renderWords() {
         // loop through the word bank
         const spanElement = document.createElement("span"); // create span element to hold every word
         spanElement.setAttribute("id", i); // give id for every word
-        spanElement.setAttribute("class", "fs-4"); // give it good size
+        spanElement.setAttribute("class", "fs-4 px-2"); // give it good size
         spanElement.innerHTML = game.words[i]; // set the word
         document.getElementById("random-words").appendChild(spanElement); // add the element with the word to html
     }
@@ -57,7 +57,7 @@ function derenderWords() {
 // after word has been input and it is correct change the color in the word bank
 function renderCorrectWord(wordID) {
     let correctWordElement = document.getElementById(wordID);
-    correctWordElement.setAttribute("class", "text-success fs-4");
+    correctWordElement.setAttribute("class", "text-success fs-4 px-2");
     game.correctWords += 1; // increment the number of correct words
     game.currentWord += 1; // move the word bank index by 1
 }
@@ -65,7 +65,7 @@ function renderCorrectWord(wordID) {
 // after a word has been input and it is wrong change the color in the word bank
 function renderErrorWord(wordID) {
     let errorWordElement = document.getElementById(wordID);
-    errorWordElement.setAttribute("class", "text-danger fs-4");
+    errorWordElement.setAttribute("class", "text-danger fs-4 px-2");
     game.errorWords += 1; // increment the number of wrond words
     game.currentWord += 1; // move the word bank index by 1
 }
@@ -73,7 +73,8 @@ function renderErrorWord(wordID) {
 // render the current word in the word bank with a blue background so it stands out
 function renderCurrentWord(wordID) {
     let currentWordElement = document.getElementById(wordID);
-    currentWordElement.setAttribute("class", "bg-primary fs-4");
+    currentWordElement.setAttribute("class", "bg-primary-subtle fs-4 rounded-pill px-2");
+    currentWordElement.scrollIntoView({ behavior: "smooth", block: "center" });
 }
 
 // reset the values of the game, timer, and input field
@@ -85,11 +86,16 @@ function restart() {
     inputElement.focus();
 }
 
+function mouseHandler(e) {
+    e.preventDefault();
+    e.stopPropagation();
+}
 // initialize the game
 function init() {
     setWords();
     renderWords();
     renderCurrentWord(game.currentWord);
+    document.getElementById("random-words").addEventListener("mousewheel", mouseHandler, false);
 }
 
 // run when anything is input in the input field
