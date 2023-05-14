@@ -22,26 +22,26 @@
         <div class="d-flex flex-column justify-content-center align-items-center vh-100">
             <div class="d-flex flex-row justify-content-center card text-center">
                 <div class="card-body d-flex flex-row justify-content-evenly" id="card_body">
-                    <div id="time-card">
-                        <div class="d-flex flex-row justify-content-center align-items-end">
+                    <div class="position-relative" id="time-card">
+                        <div class="d-flex flex-row justify-content-center align-items-end" id="seconds">
                             <h1 class="display-6 m-0" id="timer">60</h1>
                             <p class="m-0">s</p>
                         </div>
-                        <p class="m-0 fw-light">TIME</p>
+                        <p class="m-0 fw-light position-absolute start-0 bottom-0 end-0">TIME</p>
                     </div>
                     <div class="vr"></div>
-                    <div id="speed-card">
-                        <div class="d-flex flex-row justify-content-center align-items-end">
+                    <div class="d-flex flex-column justify-content-center" id="speed-card">
+                        <div class="d-flex flex-row justify-content-center align-items-end" id="wpm">
                             <h1 class="display-6 m-0" id="timer">000</h1>
                             <p class="m-0">wpm</p>
                         </div>
-                        <p class="m-0 fw-light">SPEED</p>
+                        <p class="m-0 fw-light position-absolute start-0 bottom-0 end-0">SPEED</p>
                     </div>
                     <div class="vr"></div>
                     <div class="flex-fill px-3" id="accuracy-card">
                         <div class="w-100">
                             <div>
-                                <h4 class="m-0 p-0">75%</h4>
+                                <h4>75%</h4>
                             </div>
                             <div class="progress bg-danger">
                                 <div class="progress-bar progress-bar bg-success" role="progressbar" style="width: 75%"></div>
@@ -60,7 +60,7 @@
                                 </div>
                             </div>
                         </div>
-                        <p class="m-0 fw-light align-items-end">ACCURACY</p>
+                        <p class="m-0 fw-light">ACCURACY</p>
                     </div>
                 </div>
             </div>

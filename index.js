@@ -30,7 +30,16 @@ function Timer() {
 
 // get the passage from passages.js
 function setWords() {
-    let passage = passagesArray[0].replace(/[0-9_]/gi, "").split(" "); // get rid of any numbers
+    let passage = [];
+    let _passage = "";
+    // If the passagesArray is empty or null set to default
+    if (!passagesArray || passagesArray.length === 0 || !passagesArray[0] || passagesArray[0].length === 0) {
+        _passage =
+            "It looks like the program failed to load the text. Try refreshing the website. If not here is an example passage you can type.  Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.";
+    } else {
+        _passage = passagesArray[0].replace(/[0-9_]/gi, ""); // get rid of any numbers
+    }
+    passage = _passage.split(" "); // breaking the passage into seperate words and saving into an array
     game.totalWords = passage.length; // set the total words in the game
     game.words = passage; // save the wordbank
 }

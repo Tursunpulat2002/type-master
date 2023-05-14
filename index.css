@@ -18,14 +18,37 @@
 
 #time-card{
     width: 100px;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+#seconds{
+    margin-bottom: 15px;
 }
 
 #speed-card{
     width: 150px;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+#wpm{
+    margin-bottom: 15px;
 }
 
 #accuracy-card{
     width: 400px;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
 }
 
 #success-box{
