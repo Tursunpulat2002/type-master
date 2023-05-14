@@ -146,6 +146,7 @@ document.getElementById("restart").onclick = function () {
     derenderWords(); // get rid of the old word bank
     restart(); // reset values
     init(); // initialize new game
+    document.getElementById("main_input").disabled = false;
 };
 
 // initalize new game when the website first loads
