@@ -18,15 +18,60 @@
             crossorigin="anonymous"
         ></script>
     </head>
-    <body class="container mx-auto">
-        <div class="d-flex flex-column">
-            <div id="timer">60</div>
-            <div class="d-flex flex-wrap" id="random-words"></div>
-            <div id="typing-input">
-                <input type="text" id="main_input" autofocus />
+    <body class="container mx-auto bg-primary-subtle">
+        <div class="d-flex flex-column justify-content-center align-items-center vh-100">
+            <div class="d-flex flex-row justify-content-center card text-center">
+                <div class="card-body d-flex flex-row justify-content-evenly" id="card_body">
+                    <div class="position-relative" id="time-card">
+                        <div class="d-flex flex-row justify-content-center align-items-end" id="seconds">
+                            <h1 class="display-6 m-0" id="timer">60</h1>
+                            <p class="m-0">s</p>
+                        </div>
+                        <p class="m-0 fw-light position-absolute start-0 bottom-0 end-0">TIME</p>
+                    </div>
+                    <div class="vr"></div>
+                    <div class="d-flex flex-column justify-content-center" id="speed-card">
+                        <div class="d-flex flex-row justify-content-center align-items-end" id="wpm">
+                            <h1 class="display-6 m-0" id="timer">000</h1>
+                            <p class="m-0">wpm</p>
+                        </div>
+                        <p class="m-0 fw-light position-absolute start-0 bottom-0 end-0">SPEED</p>
+                    </div>
+                    <div class="vr"></div>
+                    <div class="flex-fill px-3" id="accuracy-card">
+                        <div class="w-100">
+                            <div>
+                                <h4>75%</h4>
+                            </div>
+                            <div class="progress bg-danger">
+                                <div class="progress-bar progress-bar bg-success" role="progressbar" style="width: 75%"></div>
+                            </div>
+                            <div class="d-flex flex-row justify-content-between" id="success-words">
+                                <div class="d-flex flex-row justify-content-start align-items-center">
+                                    <div class="border border-success bg-success" id="success-box" style="width: 10px; height: 10px"></div>
+                                    <p class="m-0 p-0" style="width: 30px; height: 20px">75</p>
+                                </div>
+                                <div class="d-flex flex-row justify-content-start align-items-center">
+                                    <p class="m-0 p-0" style="width: 150px; height: 20px">100 words</p>
+                                </div>
+                                <div class="d-flex flex-row justify-content-end align-items-center">
+                                    <p class="m-0" style="width: 30px; height: 20px">25</p>
+                                    <div class="border border-danger bg-danger" id="success-box" style="width: 10px; height: 10px"></div>
+                                </div>
+                            </div>
+                        </div>
+                        <p class="m-0 fw-light">ACCURACY</p>
+                    </div>
+                </div>
             </div>
-            <div>
-                <button id="restart">Restart</button>
+            <div class="d-flex flex-wrap rounded p-3 border border-2 border-primary mb-4 mt-4 bg-white" id="random-words"></div>
+            <div class="d-flex flex-row justify-content-center">
+                <div class="p-2 input-group" id="typing-input">
+                    <input type="text" class="form-control" id="main_input" autofocus />
+                </div>
+                <div class="p-2">
+                    <button class="btn btn-primary" id="restart">Restart</button>
+                </div>
             </div>
         </div>
         <script src="index.js" type="module"></script>
