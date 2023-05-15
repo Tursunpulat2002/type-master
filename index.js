@@ -8,6 +8,7 @@ let intervalID = null;
 function Timer() {
     let start = Date.now(); // get the current time
     let counter = parseInt(document.getElementById("timer").innerHTML); // get the timer from html
+    let prevTotalWords = 0;
     intervalID = setInterval(function () {
         // call and save setInterval
         if (game.gameStart) {
@@ -16,14 +17,22 @@ function Timer() {
                 // stop decrementing if the timer hits 0
                 document.getElementById("timer").innerHTML = "0";
                 document.getElementById("main_input").disabled = true;
-                return;
+                document.getElementById("wpm").innerHTML = game.correctWords;
+                game.gameStart = false;
             } else {
                 // decrement the timer
                 let delta = Date.now() - start; // milliseconds elapsed since start
                 let deltaInSec = Math.floor(delta / 1000); // in seconds
                 document.getElementById("timer").innerHTML = 60 - deltaInSec;
                 counter -= 1;
+
+                // calculate words per minute
+                let _wpm = parseInt(game.correctWords / (deltaInSec / 60));
+                let wpm = ("000" + _wpm).slice(-3);
+                document.getElementById("wpm").innerHTML = wpm;
             }
+        } else {
+            return;
         }
     }, 1000); // run the function every 1 second
 }
@@ -138,6 +147,17 @@ document.getElementById("main_input").oninput = function (event) {
             renderErrorWord(game.currentWord); // else render it red
         }
         renderCurrentWord(game.currentWord); // render the next word in the word bank
+        game.typedWords += 1; // needed for wpm
+        // update accuracy stat data
+        if (game.typedWords > 0) {
+            document.getElementById("progress-bar-container").setAttribute("class", "progress bg-danger");
+        }
+        document.getElementById("total-words").innerHTML = game.typedWords + " words";
+        document.getElementById("correct-words").innerHTML = game.correctWords;
+        document.getElementById("error-words").innerHTML = game.errorWords;
+        let percentCorrect = parseInt((game.correctWords / game.typedWords) * 100) + "%";
+        document.getElementById("percent-correct").innerHTML = percentCorrect;
+        document.getElementById("progress-bar-percent").setAttribute("style", "width: " + percentCorrect);
     }
 };
 
@@ -147,6 +167,13 @@ document.getElementById("restart").onclick = function () {
     restart(); // reset values
     init(); // initialize new game
     document.getElementById("main_input").disabled = false;
+    document.getElementById("wpm").innerHTML = "000";
+    document.getElementById("total-words").innerHTML = "0 words";
+    document.getElementById("correct-words").innerHTML = "0";
+    document.getElementById("error-words").innerHTML = "0";
+    document.getElementById("percent-correct").innerHTML = "0%";
+    document.getElementById("progress-bar-percent").setAttribute("style", "width: 0%");
+    document.getElementById("progress-bar-container").setAttribute("class", "progress");
 };
 
 // initalize new game when the website first loads

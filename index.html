@@ -31,8 +31,8 @@
                     </div>
                     <div class="vr"></div>
                     <div class="d-flex flex-column justify-content-center" id="speed-card">
-                        <div class="d-flex flex-row justify-content-center align-items-end" id="wpm">
-                            <h1 class="display-6 m-0" id="timer">000</h1>
+                        <div class="d-flex flex-row justify-content-center align-items-end" id="wpm-card">
+                            <h1 class="display-6 m-0" id="wpm">000</h1>
                             <p class="m-0">wpm</p>
                         </div>
                         <p class="m-0 fw-light position-absolute start-0 bottom-0 end-0">SPEED</p>
@@ -41,21 +41,26 @@
                     <div class="flex-fill px-3" id="accuracy-card">
                         <div class="w-100">
                             <div>
-                                <h4>75%</h4>
+                                <h4 id="percent-correct">0%</h4>
                             </div>
-                            <div class="progress bg-danger">
-                                <div class="progress-bar progress-bar bg-success" role="progressbar" style="width: 75%"></div>
+                            <div class="progress" id="progress-bar-container">
+                                <div
+                                    class="progress-bar progress-bar bg-success"
+                                    role="progressbar"
+                                    style="width: 0%"
+                                    id="progress-bar-percent"
+                                ></div>
                             </div>
                             <div class="d-flex flex-row justify-content-between" id="success-words">
                                 <div class="d-flex flex-row justify-content-start align-items-center">
                                     <div class="border border-success bg-success" id="success-box" style="width: 10px; height: 10px"></div>
-                                    <p class="m-0 p-0" style="width: 30px; height: 20px">75</p>
+                                    <p class="m-0 p-0" style="width: 30px; height: 20px" id="correct-words">0</p>
                                 </div>
                                 <div class="d-flex flex-row justify-content-start align-items-center">
-                                    <p class="m-0 p-0" style="width: 150px; height: 20px">100 words</p>
+                                    <p class="m-0 p-0" style="width: 150px; height: 20px" id="total-words">0 words</p>
                                 </div>
                                 <div class="d-flex flex-row justify-content-end align-items-center">
-                                    <p class="m-0" style="width: 30px; height: 20px">25</p>
+                                    <p class="m-0" style="width: 30px; height: 20px" id="error-words">0</p>
                                     <div class="border border-danger bg-danger" id="success-box" style="width: 10px; height: 10px"></div>
                                 </div>
                             </div>
