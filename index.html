@@ -18,7 +18,7 @@
             crossorigin="anonymous"
         ></script>
     </head>
-    <body class="container mx-auto bg-primary-subtle">
+    <body class="container mx-auto bg-primary-subtle position-relative">
         <div class="d-flex flex-column justify-content-center align-items-center vh-100">
             <div class="d-flex flex-row justify-content-center card text-center">
                 <div class="card-body d-flex flex-row justify-content-evenly" id="card_body">
@@ -76,6 +76,52 @@
                 </div>
                 <div class="p-2">
                     <button class="btn btn-primary" id="restart">Restart</button>
+                </div>
+            </div>
+            <div id="root-modal" class="position-absolute d-flex justify-content-center align-items-center vw-100 vh-100">
+                <div id="modal-background" class="position-fixed vw-100 vh-100 bg-black opacity-25"></div>
+                <div id="modal-content" class="position-fixed custom-shadow" style="width: min(70vw, 700px)">
+                    <div class="card text-center">
+                        <div class="card-header display-6">STATS</div>
+                        <div class="card-body">
+                            <div class="d-flex flex-row justify-content-center align-items-end" id="wpm-card">
+                                <h1 class="display-5 m-0" id="wpm2">000</h1>
+                                <p class="m-0">wpm</p>
+                            </div>
+                            <hr class="border border-2 border-primary" />
+                            <h2>ACCURACY</h2>
+                            <div>
+                                <div>
+                                    <h4 id="percent-correct2">0%</h4>
+                                </div>
+                                <div class="progress" id="progress-bar-container2">
+                                    <div
+                                        class="progress-bar progress-bar bg-success"
+                                        role="progressbar"
+                                        style="width: 0%"
+                                        id="progress-bar-percent2"
+                                    ></div>
+                                </div>
+                            </div>
+                            <div class="d-flex flex-row justify-content-between my-3 mx-3">
+                                <h3 class="m-0">TOTAL</h3>
+                                <div class="vr"></div>
+                                <h3 class="m-0">CORRECT</h3>
+                                <div class="vr"></div>
+                                <h3 class="m-0">WRONG</h3>
+                            </div>
+                            <hr class="border border-bottom border-primary" />
+                            <div class="d-flex flex-row justify-content-between my-3 mx-5">
+                                <h4 class="m-0" id="total-words2">0</h4>
+                                <h4 class="m-0" id="correct-words2">0</h4>
+                                <h4 class="m-0" id="error-words2">0</h4>
+                            </div>
+
+                            <div class="p-2">
+                                <button class="btn btn-primary" id="restart2">Restart</button>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
