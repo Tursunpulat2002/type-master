@@ -7,6 +7,7 @@ class Game {
     totalWords = 0;
     words = [];
     currentWord = 0;
+    typedWords = 0;
 
     restart() {
         // function to reset game stats to default
@@ -16,6 +17,7 @@ class Game {
         this.totalWords = 0;
         this.words = [];
         this.currentWord = 0;
+        this.typedWords = 0;
     }
 }
 let game = new Game(); // creating instance of game

@@ -38,7 +38,7 @@
     justify-content: center;
 }
 
-#wpm{
+#wpm-card{
     margin-bottom: 15px;
 }
 
@@ -57,4 +57,12 @@
 
 #success-words{
     margin-bottom: 5px;
+}
+
+#progress-bar-percent{
+    transition: width 0.2s;
+}
+
+.custom-shadow{
+    box-shadow: rgba(0, 0, 0, 0.16) 0px 3px 6px, rgba(0, 0, 0, 0.23) 0px 3px 6px;
 }
